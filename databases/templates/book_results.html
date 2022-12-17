@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'book_results.js')}}"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='book_results.css')}}">
+<div id="page" class="container">
+    <div id="home" class="row">
+        {% if user is not none %}
+        <div id="title" class="col">
+            Hi, {{ user [1] }}: {{action}} {{entity}} {{title}}
+        </div>
+        {% else %}
+        <div id="title" class="col">
+            {{action}} {{entity}} {{title}}
+        </div>
+        {% endif %}
+    </div>
+    <div id="results" class="row">
+      {% for n in data %}
+        <div class="item_holder" class="col-6">
+            <div class="title" class="attribute">Title: {{n[1]}}
+                {% if user is not none and entity == "Books" %}
+                    {% if n[0] in read_books %}
+                    <button id="{{n[0]}}" class="already_read" disabled="true">Already Read</button>
+                    {% else %}
+                    <button id="{{n[0]}}" class="read">Mark as Read</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="attribute">ISBN: {{n[0]}}</div>
+            <div class="attribute">Year Published: {{n[3]}}</div>
+            <div class="attribute">Number of Pages: {{n[4]}}</div>
+            <div class="attribute">
+                <button id="{{n[0]}}" class="comments">See Comments</button>
+                <button id="{{n[2]}}" class="authors">See Author</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

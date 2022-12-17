@@ -1,0 +1,19 @@
+#webTitle{
+    background-color: rgb(131, 202, 218);
+}
+#webTitle a{
+    color: rgb(31, 48, 52);
+}
+#description{
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: darkgray;
+}
+#title{
+    justify-content: center;
+    text-align: center;
+    padding: 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'add_books.js')}}"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<div id="page" class="container">
+    <div id="home" class="row">
+        <div id="title" class="col">
+            {{action}} {{entity}} {{term}}
+        </div>
+    </div>
+    <div id="adding_form" class="row"> 
+        <form id="adding">
+            <div class="form-group" id="book">
+                <label for="book_title">Book Title</label>
+                <input class="form-control" id="book_title" aria-describedby="book_title" placeholder="Enter Book Title">
+              </div>
+              <div class="form-group" id="author">
+                <label for="author_name">Author Name</label>
+                <input class="form-control" id="author_name" placeholder="Author's Name">
+              </div>
+              <div class="form-group" id="isbn">
+                <label for="isbn_number">ISBN</label>
+                <input class="form-control" id="isbn_number" placeholder="ISBN">
+              </div>
+              <div class="form-group">
+                <label for="date_published">Date Published</label>
+                <input class="form-control" id="date_published" placeholder="YYYY-MM-DD Form">
+              </div>
+              <div class="form-group">
+                <label for="number_pages">Number of Pages</label>
+                <input class="form-control" id="num_pages" placeholder="Number of Pages">
+              </div>
+              <button type="submit" class="btn btn-primary">Add Book</button> 
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'author_results.js')}}"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='book_results.css')}}">
+<div id="page" class="container">
+    <div id="home" class="row">
+        {% if user is not none %}
+        <div id="title" class="col">
+            Hi, {{ user [1] }}: {{action}} {{entity}} {{title}}
+        </div>
+        {% else %}
+        <div id="title" class="col">
+            {{action}} {{entity}} {{title}}
+        </div>
+        {% endif %}
+    </div>
+    <div id="results" class="row">
+      {% for n in data %}
+        <div class="item_holder" class="col-6">
+            <div class="title" class="attribute">Author: {{n[1]}}
+                {% if user is not none and (entity == "Authors" or entity == "Author") %}
+                    {% if n[0] in liked_authors %}
+                    <button id="{{n[0]}}"class="like" disabled="true">Already Liked</button>
+                    {% else %}
+                    <button id="{{n[0]}}"class="like">Like</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="attribute">Number of Books Published: {{n[2]}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

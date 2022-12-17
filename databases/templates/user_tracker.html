@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'user_tracker.js')}}"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='search_home.css')}}">
+
+<div id="page" class="container">
+    {% if user is not none%}
+    <div id="hi_user" class="row">
+        <h2>Hi {{user[1]}}! Welcome to your profile. </h2>
+    </div>
+    <div id="books_authors" class="row">
+        <div id="books_home" class="col-6">
+            <div class="entity">
+                <h3>See your read books.</h3>
+                <button id="read_books" class="button">Read Books</button>
+            </div>
+        </div>
+        <div id="authors_home" class="col-6">
+            <div class="entity">
+                <h3>See your liked authors.</h3>
+                <button id="liked_authors" class="button">Liked Authors</button>
+            </div>
+        </div>
+    </div>
+    <div id="genres_wishlists" class="row">
+        <div id="genres_home" class="col-6">
+            <div class="entity">
+                <h3>See your liked genres. </h3>
+                <button id="liked_genres" class="button">Liked Genres</button>
+            </div>
+        </div>
+        <div id="wishlists_home" class="col-6">
+            <div class="entity">
+                <h3>See your wishlists.</h3>
+                <button id="created_wishlists" class="button">Your Wishlists</button>
+            </div>
+        </div>
+        <div id="friends_home" class="col-6">
+            <div class="entity">
+                <h3>See your friends.</h3>
+                <button id="friends" class="button">See Friends</button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div id="hi_user" class="row">
+        <h2 id="title">Hi! Welcome to BookTracker. </h2>
+        <h3 id ="description">To see information about your profile, please select which user you are.</h3>
+    </div>
+    <div class="row">
+        <button id="select_user"> Select User</button>
+    </div>
+    {% endif %}
+    
+</div>
+
+{% endblock %}

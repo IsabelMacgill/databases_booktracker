@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'search_home.js')}}"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='search_home.css')}}">
+
+<div id="page" class="container">
+    {% if user is not none %}
+    <div id="hi_user" class="row">
+        <h2>Hi {{user[1]}}! Welcome to BookTracker. </h2>
+    </div>
+    {% else %}
+    <div id="hi_user" class="row">
+        <h2>Welcome to BookTracker. </h2>
+    </div>
+    {% endif %}
+    <div id="books_authors" class="row">
+        <div id="books_home" class="col-6">
+            <div class="entity">
+                <h3>Search Books</h3>
+                <form id="search_books">
+                 <input id="search_books_input" class="form-control form-control-lg" type="text" placeholder="Search for books">
+                </form> 
+                <button id="browse_books" class="button">Browse Books</button>
+                <button id="add_book" class="button">Add Book</button>
+            </div>
+        </div>
+        <div id="authors_home" class="col-6">
+            <div class="entity">
+                <h3>Search Authors</h3>
+                <form id="search_authors">
+                    <input  id="search_authors_input"class="form-control form-control-lg" type="text" placeholder="Search for authors">
+                </form> 
+                <button id="browse_authors" class="button">Browse Authors</button>
+                <button id="add_author" class="button">Add Authors</button>
+            </div>
+        </div>
+    </div>
+    <div id="genres_wishlists" class="row">
+        <div id="genres_home" class="col-6">
+            <div class="entity">
+                <h3>Search Genres</h3>
+                <form id="search_genres">
+                 <input id="search_genres_input" class="form-control form-control-lg" type="text" placeholder="Search genres">
+                </form> 
+                <button id="browse_genres" class="button">Browse Genres</button>
+            </div>
+        </div>
+        {% if user is not none %}
+            <div id="wishlists_home" class="col-6">
+                <div class="entity">
+                    <h3>Search Wishlists</h3>
+                    <form id="search_wishlists">
+                        <input  id="search_wishlists_input"class="form-control form-control-lg" type="text" placeholder="Search your wishlists">
+                    </form> 
+                    <button id="browse_wishlists" class="button">Browse Wishlists</button>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

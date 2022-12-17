@@ -1,0 +1,27 @@
+.item_holder{
+    padding: 20px; 
+    margin: 20px 20px;
+    padding: 20px;
+    background-color: rgba(230, 229, 231, 0.605);
+    border-radius: 10% / 35%;
+    font-size: medium;
+    color:rgb(31, 48, 52);
+}
+.attribute{
+    padding: 10px;
+}
+.title{
+    font-size: large; 
+    padding: 10px;
+}
+button{
+    background-color: rgb(131, 202, 218);
+    color: rgb(31, 48, 52);
+    padding: 0px 5px; 
+    margin: 5px;
+    border-radius: 10px;
+}
+button:disabled{
+    background-color: rgba(176, 213, 222, 0.557)
+}
+
